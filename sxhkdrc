@@ -1,0 +1,91 @@
+#################################################################
+# Super Stuff
+#################################################################
+
+# Dmenu
+super + d
+    dmenu_run -l 10 -g 3 -p "Run: "
+
+# TaskManagers
+super + t
+	taskchooser
+
+super + p
+    st "pulsemixer"
+
+# Std Browser
+super + b
+    qutebrowser
+
+# Kill Client with Mouse
+super + Escape
+    xkill
+
+# super + a
+    # click4ever
+
+#################################################################
+# Script Stuff
+#################################################################
+
+super + D
+    $HOME/.local/bin/d_dmenus
+
+super + s
+    $HOME/.local/bin/dmenus/d_scripts
+
+# super + x
+    # $HOME/.local/bin/dmenus/d_powermenu
+
+#################################################################
+# Shift Stuff
+#################################################################
+
+super + shift + p
+    pavucontrol
+
+# Google Chrome
+super + shift + b
+    google-chrome-stable
+
+#File-Manager
+super + shift + Return
+	st ranger
+
+#################################################################
+# Ctrl Stuff
+#################################################################
+
+# ctrl + alt + Return
+    # neovide --maximized
+
+#Nitrogen
+ctrl + alt + i
+     nitrogen
+
+#reload sxhkd:
+ctrl + shift + s
+	pkill -USR1 -x sxhkd ; notify-send "Sxhkd" "Restarting.."
+
+#################################################################
+#     Function Keys
+#################################################################
+
+# MBrightness
+XF86MonBrightnessDown
+  brightnessctl s 10-
+
+XF86MonBrightnessUp
+  brightnessctl s 10+
+
+XF86AudioMute
+  pulsemixer --id sink-58 --toggle-mute; pkill -RTMIN+17 dwmblocks
+
+XF86AudioLowerVolume
+  pulsemixer --id sink-58 --change-volume -5; pkill -RTMIN+17 dwmblocks
+
+XF86AudioRaiseVolume
+  pulsemixer --id sink-58 --change-volume +5; pkill -RTMIN+17 dwmblocks
+
+XF86AudioMicMute
+  pulsemixer --id source-59 --toggle-mute; pkill -RTMIN+16 dwmblocks
